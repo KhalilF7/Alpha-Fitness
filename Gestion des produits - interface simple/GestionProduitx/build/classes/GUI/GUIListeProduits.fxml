@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#getSelect" prefHeight="622.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListeProduitsController">
+   <children>
+      <ListView fx:id="listViewProduits" layoutX="313.0" layoutY="154.0" prefHeight="447.0" prefWidth="602.0" />
+      <Button fx:id="btnHome" layoutX="54.0" layoutY="34.0" mnemonicParsing="false" onAction="#accueil" prefHeight="32.0" prefWidth="43.0" text="🏠">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ListView fx:id="listViewCategories" layoutX="54.0" layoutY="403.0" onMouseClicked="#getSelect" prefHeight="198.0" prefWidth="200.0" />
+      <Label layoutX="514.0" layoutY="66.0" prefHeight="69.0" prefWidth="200.0" text="All Stock">
+         <font>
+            <Font name="System Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="154.0" prefHeight="35.0" prefWidth="90.0" text="Sort by">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listViewTri" layoutX="54.0" layoutY="196.0" onMouseClicked="#getSelected" prefHeight="142.0" prefWidth="200.0" />
+      <Label layoutX="54.0" layoutY="377.0" prefHeight="25.0" prefWidth="90.0" text="Collections">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="343.0" prefHeight="35.0" prefWidth="90.0" text="Filter by">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
