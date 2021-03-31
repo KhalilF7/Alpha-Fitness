@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="980.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListeProduitsController">
+   <children>
+      <ImageView fitHeight="193.0" fitWidth="416.0" layoutX="850.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/back3louta.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="267.0" fitWidth="580.0" layoutX="267.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/back2.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="375.0" prefHeight="66.0" prefWidth="823.0" style="-fx-background-color: #535355;">
+         <children>
+            <Label layoutX="679.0" layoutY="21.0" prefHeight="31.0" prefWidth="126.0" text="Hello Admin" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <ImageView fitHeight="42.0" fitWidth="52.0" layoutX="629.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/icons8_Person_32px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <VBox alignment="TOP_CENTER" layoutX="-3.0" prefHeight="632.0" prefWidth="267.0" style="-fx-background-color: #535355;" />
+      <ImageView fitHeight="66.0" fitWidth="580.0" layoutX="265.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/aaaa.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="301.0" layoutY="12.0" prefHeight="42.0" prefWidth="347.0" text="Products Management" textFill="#eeeaea">
+         <font>
+            <Font name="Arial Bold" size="31.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <ImageView fitHeight="39.0" fitWidth="42.0" layoutX="265.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8-chevron-right-50.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="264.0" prefHeight="632.0" prefWidth="5.0" style="-fx-background-color: #FF0000;" />
+      <ImageView fitHeight="177.0" fitWidth="231.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/ALPHA4.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="202.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="      Overview" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="30.0" fitWidth="39.0" layoutX="71.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Home_32px.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="246.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="Users" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="68.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Person_32px.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="291.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="243.0" style="-fx-background-color: #535355;" text=" Events" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="70.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8-event-64.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="340.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="243.0" style="-fx-background-color: #535355;" text=" Orders" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="70.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Open_Envelope_32px.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnProducts" layoutX="10.0" layoutY="392.0" mnemonicParsing="false" onAction="#productManagement" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="    Products" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="68.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8-product-32.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="439.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="       Suggestions" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="65.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Xbox_Menu_32px.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="491.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="Blogs" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="67.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8-blog-32.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="535.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="    Settings" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="68.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Slider__32px.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="581.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="243.0" style="-fx-background-color: #535355;" text="      Sign Out" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="32.0" layoutX="67.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Sign_Out_32px.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anchorPaneBar" layoutX="269.0" layoutY="66.0" prefHeight="40.0" prefWidth="929.0" style="-fx-background-color: white;" stylesheets="@style.css" AnchorPane.bottomAnchor="526.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <JFXButton fx:id="btnCategories" onAction="#GererCategories" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="barItem" text="Collections" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="744.0" AnchorPane.topAnchor="0.0" />
+            <JFXButton fx:id="btnProduits" layoutX="185.0" onAction="#GererProduits" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="barItem" text="Products" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="558.0" AnchorPane.topAnchor="0.0" />
+            <JFXButton fx:id="btnStocks" layoutX="371.0" onAction="#GererStocks" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="barItem" text="Stocks" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="371.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="0.0" />
+            <JFXButton fx:id="btnListProduit" layoutX="557.0" onAction="#Produits" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="barItem" text="Products List" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="557.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="0.0" />
+            <JFXButton fx:id="btnStatistiques" layoutX="743.0" onAction="#Statistiques" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: white;" styleClass="barItem" text="Statistiques" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="743.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/buffer-logo-sq.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="204.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/product--v2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="402.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/216652-200.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="571.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/pngtree-vector-list-icon-png-image_322087.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="759.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../IMG/téléchargement.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="searchbar" layoutX="970.0" layoutY="154.0" onAction="#searchProduct" prefHeight="32.0" prefWidth="185.0" promptText="search" style="-fx-background-color: white; -fx-background-radius: 90;">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextField>
+      <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="1123.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../IMG/icons8_Search_52px.png" />
+         </image>
+      </ImageView>
+      <JFXListView fx:id="listViewProduits" layoutX="613.0" layoutY="194.0" prefHeight="403.0" prefWidth="545.0" />
+      <JFXListView fx:id="listViewTri" layoutX="366.0" layoutY="234.0" onMouseClicked="#getSelected" prefHeight="150.0" prefWidth="154.0" />
+      <JFXListView fx:id="listViewCategories" layoutX="366.0" layoutY="442.0" onMouseClicked="#getSelect" prefHeight="150.0" prefWidth="154.0" />
+      <Label layoutX="368.0" layoutY="201.0" prefHeight="35.0" prefWidth="90.0" text="Sort by" textFill="#616161">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="368.0" layoutY="417.0" prefHeight="25.0" prefWidth="90.0" text="Collections" textFill="#616161">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="385.0" prefHeight="35.0" prefWidth="90.0" text="Filter by" textFill="#616161">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
