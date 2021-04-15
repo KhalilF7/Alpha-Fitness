@@ -1,0 +1,38 @@
+{% extends 'basef.html.twig' %}
+{% block produits %}
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Nos Matétiels Sportifs </h3>
+            </div>
+            <div class="owl-courses owl-carousel owl-theme">
+                {% for produit in produits %}
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ produit.imgproduit|replace({'file:/C:/Users/user/Desktop/PI/GestionProduitFinal/src/IMG/': '../images/'}) }}" width="220" height="220">
+                                <div class="price red">
+                                    <h4>{{ produit.prix }} DT</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject red">{{ produit.nom }}</span>
+{# {% for stock in stocks %} #}
+                            <table class="admin-post">
+                                <tr>
+                                    <td><span class="fa fa-shopping-cart"></span></td>
+                                    <td><input type="number" class="form-control" id="exampleInputQuantity" name="qunatity"></td>
+                                    <td><button class="btn btn-primary">Acheter</button></td>
+                                </tr>
+                            </table>
+{# {% endfor %} #}
+                            <a href="courses-single.html" class="blog-btn mt-3">Détails <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
