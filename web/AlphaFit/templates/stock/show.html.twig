@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Détails Produit en stock</title>{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+        <a href="{{ path('stock_index') }}"><i class="fa fa-arrow-circle-o-left">Retour</i></a>
+        <h1>Produit : </h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Produit</th>
+                <td>{{ stock.idproduit.nom }}</td>
+            </tr>
+            <tr>
+                <th>Image du produit</th>
+                <td><img src="../images/{{ stock.idproduit.imgproduit }}" width="150" height="150"></td>
+            </tr>
+            <tr>
+                <th>Date d'ajout</th>
+                <td>{{ stock.dateentree ? stock.dateentree|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ stock.quantite }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <a href="{{ path('stock_edit', {'id': stock.id}) }}"><i class="fa fa-edit">Modifier</i></a>
+
+        {{ include('stock/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

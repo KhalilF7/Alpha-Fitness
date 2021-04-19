@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    <title>Alpha Fitness | Statistiques</title>
+    <style>
+        img{
+            pointer-events: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2",//light1
+                title:{
+                    text: "Comparaison des stocks"
+                },
+                data: [
+                    {
+                        type: "column",
+                        dataPoints: [
+                                {% for stock in stocks %}{ label: "{{ stock.idproduit.nom }}",  y: {{ stock.quantite }}  },{% endfor %}
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+
+            var images = [];
+            var produits= [];
+
+            {% for stock in stocks %}images.push({url: "images/{{ stock.idproduit.imgproduit }}",});{% endfor %}
+
+            addImages(chart);
+
+            function addImages(chart){
+                for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+                    var label = chart.data[0].dataPoints[i].label;
+
+                    if(label){
+                        produits.push( $("<img>").attr("src", images[i].url)
+                            .attr("class", label)
+                            .css("display", "none")
+                            .appendTo($("#chartContainer>.canvasjs-chart-container"))
+                        );
+                    }
+
+                    positionImage(produits[i], i);
+                }
+            }
+
+            function positionImage(produit, index){
+                var imageBottom = chart.axisX[0].bounds.y1;
+                var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
+
+                produit.width(chart.dataPointWidth * .7);
+                produit.height(chart.dataPointWidth * .6);
+                produit.css({"position": "absolute",
+                    "display": "block",
+                    "top": imageBottom  - produit.height(),
+                    "left": imageCenter - produit.width()/2
+                });
+                chart.render();
+            }
+
+            $( window ).resize(function() {
+                for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+                    positionImage(produits[i], i);
+                }
+            });
+        }
+    </script>
+{% endblock %}
+{% block innerblock %}
+    <div class="inner-block">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Statistiques</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </section><!-- /.content -->
+    </div>
+{% endblock %}
