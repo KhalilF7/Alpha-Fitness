@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Détails Catégorie</title>{% endblock %}
+
+{% block innerblock %}
+<div class="inner-block">
+
+    <a href="{{ path('categorie_index') }}"><i class="fa fa-arrow-circle-o-left">Retour</i></a>
+
+    <h1>Catégorie : {{ categorie.titre }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ categorie.titre }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="../images/{{ categorie.imagecat }}" height="250"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-edit">Modifier</i></a>
+
+    {{ include('categorie/_delete_form.html.twig') }}
+</div>
+{% endblock %}

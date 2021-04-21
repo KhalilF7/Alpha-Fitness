@@ -1,0 +1,18 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+<table>
+    <tr>
+        <td>{{ form_label(form.idproduit, "Produit : ") }}</td>
+        <td>{{ form_widget(form.idproduit) }} {{ form_errors(form.idproduit) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.dateentree, "Date d'ajout : ") }}</td>
+        <td>{{ form_widget(form.dateentree) }} {{ form_errors(form.dateentree) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.quantite, "Quantité du produit : ") }}</td>
+        <td>{{ form_widget(form.quantite) }} {{ form_errors(form.quantite) }}</td>
+    </tr>
+</table>
+<button class="btn btn-primary"> {{ button_label|default('Ajouter') }}</i></button>
+{{ form_end(form) }}
