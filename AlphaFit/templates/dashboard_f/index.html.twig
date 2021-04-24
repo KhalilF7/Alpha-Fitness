@@ -1,0 +1,40 @@
+{% extends 'basef.html.twig' %}
+{% block produits %}
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Nos Matétiels Sportifs </h3>
+            </div>
+            <div class="owl-courses owl-carousel owl-theme">
+                {% for stock in stocks %}
+                    {% for produit in produits %}
+                        {% if(stock.idproduit.nom == produit.nom) %}
+                            <div class="item">
+                                <div class="course-grid">
+                                    <div class="course-img">
+                                        <a href="courses-single.html"><img src="../images/{{ stock.idproduit.imgproduit }}" width="220" height="220">
+                                            <div class="price red">
+                                                <h4>{{ stock.idproduit.prix }} DT</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="course-cont">
+                                        <span class="subject red">{{ stock.idproduit.nom }}</span>
+                                        <table class="admin-post">
+                                            <tr>
+                                                <td><span class="fa fa-shopping-cart"></span></td>
+                                                <td><input type="number" class="form-control" id="exampleInputQuantity" name="qunatity" min="1" max="{{ stock.quantite }}"></td>
+                                                <td><button class="btn btn-primary">Acheter</button></td>
+                                            </tr>
+                                        </table>
+                                        <a href="courses-single.html" class="blog-btn mt-3">Détails <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

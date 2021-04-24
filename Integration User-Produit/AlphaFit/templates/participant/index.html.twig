@@ -1,0 +1,73 @@
+{% extends 'basef.html.twig' %}
+
+{% block navdisactive %}{% endblock %}
+{% block navsettings %}active{% endblock %}
+{% block produitsback %}
+    <div class="w3l-index2">
+        <div class="content">
+            <div class="container">
+                <nav id="breadcrumbs" class="breadcrumbs">
+                    <div class="container page-wrapper text-center">
+                        <div class="header-section">
+                            <h2 class="mb-2">Paramètres</h2>
+                        </div>
+                        <a href="{{ path('dashboard_f') }}">Accueil</a> » <span class="breadcrumb_last" aria-current="page">Paramètres</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block produits %}
+    <section class="w3l-index3 py-5">
+        <div class="container py-md-3">
+            <div class="header-section text-center mx-auto">
+                    <h1 style="color:var(--primary-color)" >Paramètres Compte</h1>
+
+                    <table class="table">
+                        <tbody>
+                        <tr style="color:var(--primary-color)">
+                            <th>Nom d'utilisateur</th>
+                            <td>{{ app.user.username }}</td>
+                        </tr>
+                        <tr style="color:var(--primary-color)">
+                            <th>Mot de passe</th>
+                            <td>{{ app.user.password }}</td>
+                        </tr>
+                        <tr style="color:var(--primary-color)">
+                            <th>Email</th>
+                            <td>{{ app.user.email }}</td>
+                        </tr>
+                        <tr style="color:var(--primary-color)">
+                            <th>Image d'utilisateur</th>
+                            <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ app.user.imageuser }}" alt></td>
+                        </tr>
+                        <tr style="color:var(--primary-color)" >
+                            <th>Role</th>
+                            <td>{{ app.user.role }}</td>
+                        </tr>
+                        <tr style="color:var(--primary-color)">
+                            <th >Date de naissance</th>
+                            <td>{{ app.user.datedenaissance ? app.user.datedenaissance|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <br style="color:var(--primary-color)">
+                        <th style="color:var(--primary-color)">Carte</th>
+                        {% for carte in carte %}
+                            {% if carte.username==app.user.username %}
+                                <td class="pic" style="color:var(--primary-color)">{{ carte.typeofcard }}<br><img style="height: 200px; width: 200px;" src="/imagez/{{ carte.imagecard }}" alt></td>
+                            {% else %}
+                                <td style="color:var(--primary-color)">{{ 'pas de carte' }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <a class="btn btn-primary theme-button" href="{{ path('participant_edit', {'iduser': app.user.iduser}) }}">Modifier</a>
+
+                </div>
+        </div>
+    </section>
+{% endblock %}
+
+

@@ -1,0 +1,13 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_label(form.typeofcard,'CardName') }}
+                {{ form_widget(form.typeofcard,{'attr': {'class': 'form-control'}}) }}
+                {{ form_label(form.dateincription ,'Registration date') }}
+                {{ form_widget(form.dateincription,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.dateexpiration,'expiration date') }}
+                {{ form_widget(form.dateexpiration,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.imagecard,'Image card') }}
+                {{ form_widget(form.imagecard,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.username,'Username') }}
+                {{ form_widget(form.username,{'attr': {'class': 'form-control'}})  }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

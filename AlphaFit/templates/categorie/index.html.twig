@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}<title>Alpha Fitness | Catégorie</title>{% endblock %}
+{% block innerblock %}
+    <div class="inner-block">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Catégories</h3>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for categorie in categories %}
+                                        <tr>
+                                            <td>{{ categorie.titre }}</td>
+                                            <td><img src="../images/{{ categorie.imagecat }}" height="150"></td>
+                                            <div class="tools">
+                                                <td>
+                                                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}"><i class="fa fa-info-circle"> Details</i></a>
+                                                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-edit"> Modifier</i></a>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="3">Aucune Catégorie</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <a href="{{ path('categorie_new') }}"><i class="fa fa-plus-circle"> Créer une nouvelle catégorie</i></a>
+            </div>
+        </section><!-- /.content -->
+    </div>
+{% endblock %}

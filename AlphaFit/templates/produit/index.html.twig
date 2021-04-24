@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Produit</title>{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Produits</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Prix</th>
+                                    <th>Image du produit</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for produit in produits %}
+                                    <tr>
+                                        <td>{{ produit.nom }}</td>
+                                        <td>{{ produit.idcategorie.titre }}</td>
+                                        <td>{{ produit.prix }}</td>
+                                        <td><img src="images/{{ produit.imgproduit }}" height="150"></td>
+                                        <div class="tools">
+                                            <td>
+                                                <a href="{{ path('produit_show', {'id': produit.id}) }}"><i class="fa fa-info-circle"> Details</i></a>
+                                                <a href="{{ path('produit_edit', {'id': produit.id}) }}"><i class="fa fa-edit"> Modifier</i></a>
+                                            </td>
+                                        </div>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="6">Aucun Produit</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Categorie</th>
+                                    <th>Prix</th>
+                                    <th>Image du produit</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+            <a href="{{ path('produit_new') }}"><i class="fa fa-plus-circle"> Créer un nouveau produit</i></a>
+        </section><!-- /.content -->
+    </div>
+{% endblock %}

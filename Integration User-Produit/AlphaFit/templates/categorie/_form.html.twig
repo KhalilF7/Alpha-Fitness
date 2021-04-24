@@ -1,0 +1,14 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+<table>
+    <tr>
+        <td>{{ form_label(form.titre, "Titre : ") }}</td>
+        <td> {{ form_widget(form.titre) }} {{ form_errors(form.titre) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.imagecat, "Image : ") }}</td>
+        <td> {{ form_widget(form.imagecat) }} {{ form_errors(form.imagecat) }}</td>
+    </tr>
+</table>
+<button class="btn btn-primary"> {{ button_label|default('Ajouter') }}</i></button>
+{{ form_end(form) }}

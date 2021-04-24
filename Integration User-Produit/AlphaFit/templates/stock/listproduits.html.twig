@@ -1,0 +1,114 @@
+<html>
+<head>
+
+    <style>
+        img{
+            pointer-events: none;
+        }
+    </style>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2",//light1
+                title:{
+                    text: "Comparaison des stocks"
+                },
+                data: [
+                    {
+                        type: "column",
+                        dataPoints: [
+                                {% for stock in stocks %}{ label: "{{ stock.idproduit.nom }}",  y: {{ stock.quantite }}  },{% endfor %}
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+
+            var images = [];
+            var produits= [];
+
+            {% for stock in stocks %}images.push({url: "images/{{ stock.idproduit.imgproduit }}",});{% endfor %}
+
+            addImages(chart);
+
+            function addImages(chart){
+                for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+                    var label = chart.data[0].dataPoints[i].label;
+
+                    if(label){
+                        produits.push( $("<img>").attr("src", images[i].url)
+                            .attr("class", label)
+                            .css("display", "none")
+                            .appendTo($("#chartContainer>.canvasjs-chart-container"))
+                        );
+                    }
+
+                    positionImage(produits[i], i);
+                }
+            }
+
+            function positionImage(produit, index){
+                var imageBottom = chart.axisX[0].bounds.y1;
+                var imageCenter = chart.axisX[0].convertValueToPixel(chart.data[0].dataPoints[index].x);
+
+                produit.width(chart.dataPointWidth * .7);
+                produit.height(chart.dataPointWidth * .6);
+                produit.css({"position": "absolute",
+                    "display": "block",
+                    "top": imageBottom  - produit.height(),
+                    "left": imageCenter - produit.width()/2
+                });
+                chart.render();
+            }
+
+            $( window ).resize(function() {
+                for(var i = 0; i < chart.data[0].dataPoints.length; i++){
+                    positionImage(produits[i], i);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div>
+    <h2 align="center">Liste des Produits en Stock</h2>
+<table id="example1" border="1" align="center">
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Catégorie</th>
+        <th>Image du produit</th>
+        <th>Prix</th>
+        <th>Quantité en stock</th>
+        <th>Date d'ajout</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for stock in stocks %}
+        <tr>
+            <td>{{ stock.idproduit.nom }}</td>
+            <td>{{ stock.idproduit.idcategorie }}</td>
+            <td><img src="../images/{{ stock.idproduit.imgproduit }}" width="150" height="150"></td>
+            <td>{{ stock.idproduit.prix }}</td>
+            <td>{{ stock.quantite }}</td>
+            <td>{{ stock.dateentree ? stock.dateentree|date('Y-m-d') : '' }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Nom</th>
+        <th>Catégorie</th>
+        <th>Image du produit</th>
+        <th>Prix</th>
+        <th>Quantité en stock</th>
+        <th>Date d'ajout</th>
+    </tr>
+    </tfoot>
+</table>
+</div>
+<div id="chartContainer" style="height: 300px; width: 50%;" ></div>
+</body>
+</html>
