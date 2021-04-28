@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Ajouter Produit au Stock</title>{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+        <a href="{{ path('stock_index') }}"><i class="fa fa-arrow-circle-o-left">Retour</i></a>
+
+        <h1>Remplissez le formulaire suivant:</h1>
+        {{ include('stock/_form.html.twig') }}
+    </div>
+{% endblock %}

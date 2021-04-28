@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Modifier Produit</title>{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+
+        <a href="{{ path('produit_index') }}"><i class="fa fa-arrow-circle-o-left">Retour</i></a>
+        <h1>Modifier Produit</h1>
+
+        {{ include('produit/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        {{ include('produit/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

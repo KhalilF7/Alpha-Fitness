@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Posts</title>
+{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+        <h1>Posts</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Idp</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Contenup</th>
+                <td>{{ post.contenup }}</td>
+            </tr>
+            <tr>
+                <th>Nbcmt</th>
+                <td>{{ post.nbcmt }}</td>
+            </tr>
+            <tr>
+                <th>Views</th>
+                <td>{{ post.views }}</td>
+            </tr>
+            <tr>
+                <th>Likes</th>
+                <td>{{ post.likes }}</td>
+            </tr>
+            <tr>
+                <th>Report</th>
+                <td>{{ post.report }}</td>
+            </tr>
+            <tr>
+                <th>DateP</th>
+                <td>{{ post.dateP ? post.dateP|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ post.iduser }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('posts_index') }}">back to list</a>
+
+        <a href="{{ path('posts_edit', {'idp': posts.id}) }}">edit</a>
+
+        {{ include('posts/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

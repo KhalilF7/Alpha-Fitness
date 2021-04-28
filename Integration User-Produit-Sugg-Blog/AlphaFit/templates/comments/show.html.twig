@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+  {% block title %}
+      <title>Alpha Fitness | Comments</title>
+  {% endblock %}
+
+{% block innerblock %}
+<div class="inner-block">
+    <h1>Comments</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idc</th>
+                <td>{{ comment.idc }}</td>
+            </tr>
+            <tr>
+                <th>Idp</th>
+                <td>{{ comment.idp }}</td>
+            </tr>
+            <tr>
+                <th>Contenuc</th>
+                <td>{{ comment.contenuc }}</td>
+            </tr>
+            <tr>
+                <th>Datec</th>
+                <td>{{ comment.datec ? comment.datec|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Reportc</th>
+                <td>{{ comment.reportc }}</td>
+            </tr>
+            <tr>
+                <th>Iduser</th>
+                <td>{{ comment.iduser }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('comments_index') }}">back to list</a>
+
+    <a href="{{ path('comments_edit', {'idc': comment.idc}) }}">edit</a>
+
+    {{ include('comments/_delete_form.html.twig') }}
+</div>
+{% endblock %}

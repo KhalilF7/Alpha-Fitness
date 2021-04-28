@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title style="color:#073157">this is the list of AlphaFitness'Users</title>
+        <link rel="stylesheet" href="{{ asset("style.css") }}" media="all" />
+    </head>
+    <body>
+    <header class="clearfix">
+        <div id="company" class="clearfix">
+            <div>AlphaFitness</div>
+            <div><a href="">AlphaFitness@example.com</a></div>
+        </div>
+    </header>
+    <main>
+
+        <table class="table" border="1">
+            <thead>
+            <tr>
+                <th style="color:#6f42c1">Username</th>
+                <th style="color:#6f42c1">Email</th>
+                <th style="color:#6f42c1">Role</th>
+                <th style="color:#6f42c1">birthday</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.datedenaissance ? user.datedenaissance|date('Y-m-d') : '' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="12">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer style="color:#073157">
+        Ensemble,nous y arriverons!
+    </footer>
+    </body>
+    </html>

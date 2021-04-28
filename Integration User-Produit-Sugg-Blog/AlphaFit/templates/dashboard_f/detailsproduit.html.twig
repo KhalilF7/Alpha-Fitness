@@ -1,0 +1,66 @@
+{% extends 'basef.html.twig' %}
+{% block navdisactive %}{% endblock %}
+{% block navactive %}active{% endblock %}
+{% block title %}
+    <title>Alpha Fitness | Boutique</title>
+{% endblock %}
+{% block produitsback %}
+    <div class="w3l-index2">
+        <div class="content">
+            <div class="container">
+                <nav id="breadcrumbs" class="breadcrumbs">
+                    <div class="container page-wrapper text-center">
+                        <div class="header-section">
+                            <h2 class="mb-2">{{ stock.idproduit.nom }}</h2>
+                        </div>
+                        <a href="{{ path('dashboard_f') }}">Accueil</a> » <a href="{{ path('produitf') }}">Boutique</a> » <span class="breadcrumb_last" aria-current="page">{{ stock.idproduit.nom }} » Détails</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block produits %}
+
+    <section class="w3l-courses py-5">
+        <div class="content1" style="background-image: url(../../images/{{ stock.idproduit.idcategorie.imagecat }});">
+            <div class="container py-lg-3">
+                <div class="header-section mb-5 text-center mx-auto">
+                </div>
+                <!-- index-block2 -->
+                <section class="w3l-index4 py-4">
+                    <div class="container py-lg-3 mt-3">
+                        <div class="row mt-4">
+                            <div class="col-lg-9 col-md-10 mx-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-6 book-info pr-lg-5">
+                                        <h3 class="mb-md-4 mb-3">{{ stock.idproduit.nom }}</h3>
+                                        <p class="mb-md-5 mb-4">{{ stock.idproduit.idcategorie }}<br>{{ stock.idproduit.prix }} DT</p>
+                                        <table class="admin-post">
+                                            <tr>
+                                                <td><span class="fa fa-shopping-cart"></span></td>
+                                                <td><input type="number" class="form-control" id="exampleInputQuantity" name="qunatity" min="1" max="{{ stock.quantite }}"></td>
+                                            </tr>
+                                        </table>
+                                        <button class="btn btn-outline-primary theme-button">Acheter</button>
+                                    </div>
+                                    <div class="col-lg-6 mt-lg-0 mt-5" style="background-color: var(--light-bg-color);">
+                                        <img src="../images/{{ stock.idproduit.imgproduit }}" class="img-fluid shadow img-curve" alt="" />
+                                        {% set difference = date(stock.dateentree).diff(date()) %}
+                                        {% set leftDays = difference.days %}
+                                        {% if leftDays <= 30 %}
+                                            <img class="image2" src="../images/newproduct.png" width="70"/>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /index-block2 -->
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

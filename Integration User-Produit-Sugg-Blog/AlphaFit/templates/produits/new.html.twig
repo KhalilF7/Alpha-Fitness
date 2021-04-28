@@ -1,0 +1,37 @@
+{% extends 'baseFront.html.twig' %}
+
+ {% block top %}
+     <div class="header-section text-center mx-auto">
+         <h3 style="color:#8b0000;">Ajouter Produit </h3>
+
+     </div>
+ {% endblock %}
+{% block div %}
+    <section class="w3l-index3 py-5">
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center"></h1>
+                        {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        {{ form_row(form.nom) }}
+
+                        {{ form_label(form.categorie,"type") }}
+                        {{ form_widget(form.categorie) }}
+                        {{ form_row(form.prix) }}
+                        {{ form_row(form.imgproduit) }}
+
+                        {{ include('suggestions/form.html.twig', {'button_label': 'Ajouter'}) }}
+                    </div></div></div></div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
+{% block produit %}
+{% endblock %}

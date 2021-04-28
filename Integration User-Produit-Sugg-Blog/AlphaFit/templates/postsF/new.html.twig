@@ -1,0 +1,57 @@
+{% extends 'basef.html.twig' %}
+
+ {% block title %}
+    <title>Alpha Fitness | Posts</title>
+{% endblock %}
+
+
+{#  {% block Blogs%}
+    <section class="w3l-index3 py-5">
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center"></h1>
+                        {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        {{ form_row(form.contenup) }}
+                        {#  {{ form_row(form.imgpost) }}
+                        {{  form_row(form.dateP) }}
+                        {{ include('Posts/_form.html.twig', {'button_label': 'Ajouter'}) }}
+
+
+                    </div></div></div></div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %} #}
+
+
+
+    {% block Blogsup %}
+    <div class="content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 content-left">
+                    <h3 style="color:#d45959">Ensemble,</h3>
+                    <h3 style="color:#d45959">nous y arriverons!</h3>
+
+                    <p class="mt-3 mb-lg-5 mb-4">Partagez avec nous vos souvenirs dans nos évenements !</p>
+                    {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                         {{ form_row(form.contenup,{'attr':{'type':'textarea','class':'form-control','id':'massage','placeholder':'Enter your Post...','cols':'30','rows':'5'}}) }}
+                    {{ form_row(form.imgpost) }}
+                    {#{{  form_row(form.dateP) }}#}
+                    <a  class="btnSingel" {{ include('Posts/_form.html.twig' , {'button_label': 'Ajouter'}) }}</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

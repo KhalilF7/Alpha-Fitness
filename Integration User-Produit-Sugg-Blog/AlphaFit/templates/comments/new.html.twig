@@ -1,0 +1,50 @@
+{% extends 'basef.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Comments</title>
+{% endblock %}
+
+{# {% block Blogs %}
+    <section class="w3l-index3 py-5">
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center"></h1>
+                        {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        {{ form_row(form.contenuc) }}
+
+
+                        {{ include('Comments/_form.html.twig', {'button_label': 'Ajouter'}) }}
+                    </div></div></div></div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}#}
+{% block Blogsup %}
+    <div class="content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 content-left">
+                    <h3>Alpha Fitness is the new Alpha</h3>
+
+                    <p class="mt-3 mb-lg-5 mb-4">have the chance to try one of our 1000 high quality sports from the world’s leading experts today!</p>
+                    {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                    {{ form_row(form.contenuc,{'attr':{'type':'textarea','class':'form-control','id':'massage','placeholder':'Enter your Post...','cols':'30','rows':'5'}}) }}
+                    {{  form_row(form.idp) }}
+
+                    <a  class="btn btn-primary theme-button mb-2" {{ include('Comments/_form.html.twig' , {'button_label': 'Ajouter'}) }}</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    </div>
+{% endblock %}

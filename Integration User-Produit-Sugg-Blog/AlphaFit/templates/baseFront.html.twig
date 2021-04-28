@@ -1,19 +1,19 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
 <!doctype html>
 <html lang="en">
 <head>
-    {% block title %}
-        <title>Alpha Fitness | Accueil</title>
-    {% endblock %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Literate an Education Category Bootstrap Responsive Website Template | Home :: W3Layouts</title>
+    <title>Suggestions</title>
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset("Front/css/style-starter.css") }}">
-    <link rel="stylesheet" href="{{ asset("Front/css/style.css") }}">
+    <link rel="stylesheet" href="{{ asset("assetss/css/style-starter.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/style-starter.css") }}">
 </head>
 <body>
 <!--header-->
@@ -21,33 +21,58 @@
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark stroke">
-                <a class="navbar-brand" href="index.html">
-                    <span class=""></span> Alpha Fitness
-                </a>
-                <!-- if logo is image enable this
+
+
             <a class="navbar-brand" href="#index.html">
-                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-            </a> -->
+                <img src="{{ asset("images/alpha1.png") }}" alt="Logo" width="62" height="50"/>
+            </a>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                     </span>
                 </button>
-
+{% block k %}
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Blogs <span class="sr-only">(current)</span></a>
+                        <li class="nav-item {% block navdisactive %}{% endblock %}">
+                            <a class="nav-link" href="{{ path('dashboard_f') }}">Accueil <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item @@about-active">
-                            <a class="nav-link" href="about.html">About</a>
+                        <li class="nav-item {% block navactive %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('produitf') }}">Boutique</a>
                         </li>
-                        <li class="nav-item @@contact-active">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                        <li class="nav-item {% block navblogs %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('posts_indexf') }}">Postes</a>
+                        </li>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="nav-link active" data-toggle="dropdown" aria-expanded="false">
+                                Suggestions
+                                <i class="fa fa-angle-down lnr"></i>
+
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="{{ path('Mysuggestion') }}"> Mes suggestions </a> </li><br>
+                                <li><a href="{{ path('suggestion')}}"> Autres suggestions</a> </li><br>
+                                <li> <a href="{{ path('reclamation_new') }}"> Reclamation</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item {% block navcontact %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('contact') }}">Contacter</a>
+                        </li>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="nav-link {% block navsettings %}@@about-active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                                Profil
+                                <i class="fa fa-angle-down lnr"></i>
+
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="{{ path('participant') }}"><i class="fa fa-cog"></i> Paramètres</a> </li>
+                                <li> <a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Déconnecter</a> </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
+                {% endblock %}
                 <!-- toggle switch for light and dark theme -->
                 <div class="mobile-position">
                     <label class="theme-selector">
@@ -64,37 +89,36 @@
 </section>
 <!-- index-block1 -->
 <div class="w3l-index1">
-    {% block Blogsup %}
     <div class="content">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 content-left">
-                    <h3>Alpha Fitness is the new Alpha
-                    </h3>
-                    <p class="mt-3 mb-lg-5 mb-4">have the chance to try one of our 1000 high quality sports from the world’s leading experts today!</p>
-                    <form class="form-inline search-course d-flex">
-                        <input type="search" class="form-control mb-2 mr-sm-2" id="inlineFormInput" placeholder="What do you want to learn?" required="required">
-                        <button type="submit" class="btn btn-primary theme-button mb-2">Get Started</button>
-                    </form>
-                </div>
+                   <h1 style="font-size:100px ;color:white;"  >#1
+                    </h1>
+                    <h4 style="font-size:40px ;color:white; font-family:Times New Roman;" class="mt-3 mb-lg-5 mb-4"> Le sport développe la molécule du plaisir </h4><form class="form-inline search-course d-flex">
+                     {% block a%}   <a href="{{ path('suggestion_new') }}" style="font-size:40px;" class="btn btn-outline-success">Ajouter</a>    </form>
+               {% endblock%} </div>
+                {% block search%}  {% endblock%}
             </div>
             <div class="clear"></div>
         </div>
     </div>
-
 </div>
-{% endblock %}
 <!-- //index-block1 -->
 
-
+<!-- index-block2 -->
+<
+<!-- /index-block2 -->
 <!-- index-block2 -->
 <section class="w3l-index3 py-5">
     <div class="container py-md-3">
+        {% block top %}
         <div class="header-section text-center mx-auto">
-            <h3> Blogs </h3>
-            <p class="my-3"> You can share with us all your memories or thoughts about our events</p>
+            <h3 style="color:#B1A6A6;">VOS SUGGESTIONS</h3>
+
         </div>
-        {% block Blogs %}
+        {% endblock %}
+{% block div  %}
         <div class="row pt-md-3">
             <div class="col-lg-9 col-md-10 mx-auto">
                 <div class="accordion" id="accordionExample">
@@ -104,7 +128,7 @@
                                aria-controls="collapseOne">
                                 <div class="row">
                                     <div class="col-md-5 subject-img">
-                                        <img src="{{ asset("Front/images/Sports.jpg")}}" class="img-fluid img-curve" alt="" />
+                                        <img src="{{ asset("assetss/images/s1.jpg") }}" class="img-fluid img-curve" alt="" />
                                     </div>
                                     <div class="col-md-7 subject-content mt-md-0 mt-4">
                                         <h3>Computer science</h3>
@@ -131,9 +155,9 @@
                                         <div class="course-details">
                                             <h4>Why Study with Us?</h4>
                                             <ul>
-                                                <li><img src="{{ asset("Front/images/check.png")}}" alt="tick"> overall student-athelete GPA for Spring 2020</li>
-                                                <li><img src="{{ asset("Front/images/check.png")}}" alt="tick"> bachelor's recipients were employed or both within six months of</li>
-                                                <li><img src="{{ asset("Front/images/check.png")}}" alt="tick"> gradueates hold a position related to their degree or career objective</li>
+                                                <li><img src="{{ asset("assetss/images/check.png") }}" alt="tick"> overall student-athelete GPA for Spring 2020</li>
+                                                <li><img src="{{ asset("assetss/images/check.png") }}" alt="tick"> bachelor's recipients were employed or both within six months of</li>
+                                                <li><img src="{{ asset("assetss/images/check.png") }}" alt="tick"> gradueates hold a position related to their degree or career objective</li>
                                             </ul>
                                         </div>
                                         <div class="course-details mt-5">
@@ -159,7 +183,7 @@
                                             <h4>Subject overview:</h4>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nisi fuga natus quis velit tenetur, consectetur,
                                                 temporibus ea quasi repellendus doloremque sit magnam dignissimos ut!</p>
-                                            <img src="{{ asset("Front/images/banner.jpg")}}" class="img-fluid img-curve my-3" alt="" />
+                                            <img src="assetss/images/banner.jpg" class="img-fluid img-curve my-3" alt="" />
                                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                                         </div>
                                         <div class="course-details mt-5">
@@ -177,100 +201,64 @@
                             </div>
                         </div>
                     </div>
-                    {% endblock %}
-                </div>
+        {% endblock %}
+    </div>
             </div>
         </div>
     </div>
-</section>
+ </section>
+<!-- /index-block2 -->
 
-<footer>
-    <!-- footer -->
-    <section class="w3l-footer">
-        <div class="w3l-footer-16-main py-5">
-            <div class="container">
-                <div class="row footer-border">
-                    <div class="col-lg-3 col-md-5 column pr-md-0">
-                        <h1><a href="index.html" class="footer-brand-logo"><span class="fa fa-pencil-square-o"></span> Alpha Fitness</a></h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita commodi eum qui!!</p>
-                        <ul class="mt-4 contact">
-                            <li>
-                                <p><span class="fa fa-phone" aria-hidden="true"></span> <a href="tel:+44-255-366-88">+44-255-366-88</a></p>
-                            </li>
-                            <li>
-                                <p><span class="fa fa-clock-o" aria-hidden="true"></span> Mon - Sat 8.00 - 18.00</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5 col-md-5 column pl-md-5 mt-md-0 mt-5">
-                        <h3>Latest News</h3>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{ asset("Front/images/Sports.jpg")}}" class="img-fluid img-curve" alt="">
-                            <p class="twitter-title">Learn by doing with Real World Projects Lorem, ipsum.<br>
+{% block produit %}
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Produit </h3>
 
-                                <label class="small"><span class="fa fa-clock-o"></span> Aug 02, 2020</label>
-                            </p>
-                        </a>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{ asset("Front/images/b5.jpg")}}" class="img-fluid img-curve" alt="">
-                            <p class="twitter-title">Using Creative Problem Solving Lorem ipsum dolor sit.<br>
 
-                                <label class="small"><span class="fa fa-clock-o"></span> Sep 21, 2020</label>
-                            </p>
-                        </a>
-                        <a class="d-grid twitter-feed" href="#blog-single.html">
-                            <img src="{{ asset("Front/images/b3.jpg")}}" class="img-fluid img-curve" alt="">
-                            <p class="twitter-title">Learn by doing with Real World Projects Lorem, ipsum.<br>
 
-                                <label class="small"><span class="fa fa-clock-o"></span> Aug 02, 2020</label>
-                            </p>
-                        </a>
-                        </ul>
+            </div>
+            <div>
+
+
+
+
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="assetss/images/s2.jpg" alt=" " class="img-fluid">
+                                <div class="price red">
+                                    <h4>$28.15</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject red">Data Science</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>5 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>12 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
-                        <h3>Company</h3>
-                        <ul class="footer-gd-16">
-                            <li><a href="index.html">Blogs</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="#courses.html">Courses Offered</a></li>
-                            <li><a href="#blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
-                        <h3>Useful Links</h3>
-                        <ul class="footer-gd-16">
-                            <li><a href="#url">Case Studies</a></li>
-                            <li><a href="#url">Our Branches</a></li>
-                            <li><a href="#url">Latest Media</a></li>
-                            <li><a href="about.html">About Company</a></li>
-                            <li><a href="#url">Our People</a></li>
-                            <li><a href="#faq.html">FAQ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="below-section pt-4 mt-5 text-center">
-                    <div class="columns-2">
-                        <ul class="social">
-                            <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                            </li>
-                            <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
-                            </li>
-                            <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
-                            </li>
-                            <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
-                            </li>
-                            <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="columns mt-3">
-                        <p>&copy; 2020 Literate. All rights reserved | Design by <a href="https://w3layouts.com/">W3Layouts</a>
-                        </p>
-                    </div>
+
                 </div>
             </div>
         </div>
+    </section>
+    <!-- //courses Section -->
+    <!-- subscribe section -->
+
+{% endblock %}
+
+<!-- / getstarted -->
+
+
 
         <!-- move top -->
         <button onclick="topFunction()" id="movetop" title="Go to top">
@@ -309,14 +297,14 @@
 </footer>
 
 <!-- jQuery JS -->
-<!-- <script src="assets/js/jquery-3.4.1.slim.min.js"></script> -->
+<!-- <script src="assetss/js/jquery-3.4.1.slim.min.js"></script> -->
 <!-- jQuery JS -->
-<script src="{{ asset("Front/js/jquery-1.9.1.min.js")}}"></script>
+<script src="assetss/js/jquery-1.9.1.min.js"></script>
 
 <!-- Template JavaScript -->
 
 <!-- owl carousel -->
-<script src="{{ asset("Front/js/owl.carousel.js")}}"></script>
+<script src="assetss/js/owl.carousel.js"></script>
 
 <!-- script for testimonials -->
 <script>
@@ -336,15 +324,15 @@
                     nav: false
                 },
                 480: {
-                    items: 1,
+                    items: 2,
                     nav: false
                 },
                 667: {
-                    items: 1,
+                    items: 3,
                     nav: false
                 },
                 1000: {
-                    items: 1,
+                    items: 4,
                     nav: false
                 }
             }
@@ -417,7 +405,7 @@
 <!-- //courses owlcarousel -->
 
 <!-- magnific popup -->
-<script src="{{ asset("Front/js/jquery.magnific-popup.min.js")}}"></script>
+<script src="assetss/js/jquery.magnific-popup.min.js"></script>
 <script>
     $(document).ready(function () {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -455,7 +443,7 @@
 </script>
 
 <!-- responsive tabs -->
-<script src="{{ asset("Front/js/easyResponsiveTabs.js")}}" ></script>
+<script src="assetss/js/easyResponsiveTabs.js"></script>
 
 <!--Plug-in Initialisation-->
 <script type="text/javascript">
@@ -478,8 +466,8 @@
 </script>
 
 <!-- stats number counter-->
-<script src="{{ asset("Front/js/jquery.waypoints.min.js")}}"></script>
-<script src="{{ asset("Front/js/jquery.countup.js")}}"></script>
+<script src="assetss/js/jquery.waypoints.min.js"></script>
+<script src="assetss/js/jquery.countup.js"></script>
 <script>
     $('.counter').countUp();
 </script>
@@ -569,9 +557,8 @@
 
 
 <!-- Bootstrap JS -->
-<script src="{{ asset("Front/js/bootstrap.min.js")}}"></script>
+<script src="assetss/js/bootstrap.min.js"></script>
 
 </body>
-
 
 </html>

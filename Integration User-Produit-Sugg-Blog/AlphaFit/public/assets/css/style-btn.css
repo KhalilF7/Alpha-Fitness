@@ -1,0 +1,120 @@
+.continuer {
+    width: 300px;
+    margin: auto;
+    padding: 50px 0px;
+}
+
+ .btnSingel{
+     padding: 20px 20px;
+     background: #d45959;
+/**     background: #d45959;**/
+     border: none;
+     width: 200px;
+     color: #fff;
+     font-size: 16px;
+     font-family: sans-serif;
+     text-transform: uppercase;
+     cursor: pointer;
+     transition: .5s;
+     border-radius : 50px;
+ }
+ .btnSingel:hover {
+    /** background: #dbc3a3;**/
+     background: rgba(255,255,255,0.01);
+     border: 2px solid #d45959;
+   /**  transform: rotateX(180deg);**/
+     color: #d45959;
+ }
+
+
+.btnSingel1{
+    padding: 10px 10px;
+    background: #d45959;
+    /**     background: #d45959;**/
+    border: none;
+    width: 200px;
+    color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
+
+    cursor: pointer;
+    transition: .5s;
+    border-radius : 50px;
+}
+.btnSingel1:hover {
+    /** background: #dbc3a3;**/
+    background: rgba(255,255,255,0.01);
+    border: 2px solid #8e2525;
+    /**  transform: rotateX(180deg);**/
+    color: #d45959;
+}
+
+
+.btnSingel2{
+    padding: 5px 5px;
+    background: #3ea59c;
+    /**     background: #d45959;**/
+    border: none;
+    width: 100px;
+    color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
+
+    cursor: pointer;
+    transition: .5s;
+    border-radius : 50px;
+}
+.btnSingel2:hover {
+    /** background: #dbc3a3;**/
+    background: rgba(255,255,255,0.01);
+    border: 2px solid #3ea59c;
+    /**  transform: rotateX(180deg);**/
+    color: #3ea59c;
+}
+
+
+
+.btnSingel3{
+    padding: 1px 2px;
+    background: #88b8b3;
+    /**     background: #d45959;**/
+    border: none;
+    width: 100px;
+    color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
+
+    cursor: pointer;
+    transition: .5s;
+    border-radius : 50px;
+}
+.btnSingel3:hover {
+    /** background: #dbc3a3;**/
+    background: rgba(255,255,255,0.01);
+    border: 2px solid #88b8b3;
+    /**  transform: rotateX(180deg);**/
+    color: #88b8b3;
+}
+
+
+
+.btnSingel4{
+    padding: 1px 2px;
+    background: rgba(255,0,128,0);
+    /**     background: #d45959;**/
+    border: 1px solid #d45959;
+    width: 100x;
+    color: #d45959;
+    font-size: 16px;
+    font-family: sans-serif;
+    cursor: pointer;
+    transition: .5s;
+    border-radius : 30px;
+}
+.btnSingel4:hover {
+    /** background: #dbc3a3;**/
+    background: #d45959;
+    border: 2px solid #d45959;
+    /**  transform: rotateX(180deg);**/
+    color: #fff;
+}

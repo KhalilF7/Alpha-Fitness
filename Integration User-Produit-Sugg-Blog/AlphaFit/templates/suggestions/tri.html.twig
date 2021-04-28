@@ -1,0 +1,98 @@
+{% extends 'baseFront.html.twig' %}
+
+
+
+{% block a%} {% endblock%}
+
+{% block div%}
+    <br>
+
+    <div class="form-row align-items-end" >
+
+
+
+        <div class="col">
+            <div class="form-group">
+
+
+            </div>
+
+        </div>
+
+        <a href="{{ path('trinomdesc') }}" class="btn btn-outline-success"> Triee Date</a>
+
+
+
+    </div>
+
+    {% if sug %}
+    {% for s in sug %}
+    <div class="row pt-md-3">
+        <div class="col-lg-9 col-md-10 mx-auto">
+            <div class="accordion" id="accordionExample">
+                <div class="subject-card mt-4">
+                    <div class="subject-card-header p-0" id="headingOne">
+
+                        <div class="row">
+                            <div class="col-md-5 subject-img">
+                                <img style="height:10cm;" src="{{ s.image }}" class="img-fluid img-curve" alt="" />
+                            </div>
+                            <div class="col-md-7 subject-content mt-md-0 mt-4">
+                              <p>  <h1 style="color:darkgreen;" ><u>{{ s.type }}</u></h1></p>
+                                <br>
+                                <p><h3   class="fa fa-file-text-o"  aria-hidden="true"> {{ s.description }}</h3></p>
+
+
+     <span style="text-align: center;" class="course-number"><span  class="fa fa-heart" aria-hidden="true"></span> {{s.likes|length}} Likes</span>
+
+                                <h3 class="fa fa-calendar"  aria-hidden="true"> {{ s.date|date("d/m/Y") }}</h3>
+
+                                <span class="collapsed">
+
+
+                                             <form action="{{ path('remove_like') }}" method ="post">
+
+                                        <input type="hidden" value="{{s.id}}" name="id">
+
+                             <button class="fa fa-thumbs-up "   > Like </button>
+                             <button class="btn btn-outline-danger btn-sm "  > Dislike </button>
+
+                    </form>
+
+
+
+
+
+
+            </span>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endif %}
+{% endblock %}
+{% block produit %}{% endblock %}
+
+
+
+
+
+

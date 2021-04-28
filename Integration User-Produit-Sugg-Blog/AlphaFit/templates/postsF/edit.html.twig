@@ -1,0 +1,26 @@
+{% extends 'basef.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Posts</title>
+{% endblock %}
+
+ {% block Blogsup %}
+     <div class="content">
+         <div class="container">
+             <div class="row align-items-center">
+                 <div class="col-lg-6 content-left">
+                     <h3>Alpha Fitness is the new Alpha</h3>
+
+                     <p class="mt-3 mb-lg-5 mb-4">have the chance to try one of our 1000 high quality sports from the world’s leading experts today!</p>
+                     {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                     {{ form_row(form.contenup,{'attr':{'type':'textarea','class':'form-control','id':'massage','placeholder':'Enter your Post...','cols':'30','rows':'5'}}) }}
+
+                     <a  class="btn btn-primary theme-button mb-2" {{ include('Posts/_form.html.twig' , {'button_label': 'Modifier'}) }}</a>
+                 </div>
+             </div>
+             <div class="clear"></div>
+         </div>
+     </div>
+
+     </div>
+ {% endblock %}
