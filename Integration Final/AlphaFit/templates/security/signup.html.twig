@@ -1,0 +1,35 @@
+{% extends 'Signup.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}})   }}
+    {{ form_label(form.username,'Nom d\'utilisaqteur') }}
+    {{ form_widget(form.username,{'attr': {'class': 'form-control','placeholder': 'Nom d\'utilisaqteur'}}) }}
+    {{ form_label(form.password,'Mot de passe') }}
+    {{ form_widget(form.password,{'attr': {'class': 'form-control','placeholder': 'Mot de passe'}}) }}
+    {{ form_label(form.email,'Email') }}
+    {{ form_widget(form.email,{'attr': {'class': 'form-control','placeholder': 'Email'}}) }}
+    </br>
+    {{ form_label(form.imageuser,'Photo de profil') }}
+    {{ form_widget(form.imageuser) }}
+    </br>
+    {{ form_label(form.datedenaissance,'Date de Naissance') }}
+    {{ form_widget(form.datedenaissance) }}
+    </br>
+    <div class="forgot-top-grids">
+        <div class="forgot-grid">
+            <ul>
+                <li>
+                    <input type="checkbox" id="brand1" value="">
+                    <label for="brand1"><span></span>J'accepte les conditions</label>
+                </li>
+            </ul>
+        </div>
+
+        <div class="clearfix"> </div>
+    </div>
+    <button class="btn btn-block btn-primary btn-lg">{{ button_label|default('S\'inscrire') }}</button>
+
+    {{ form_end(form) }}
+{% endblock %}

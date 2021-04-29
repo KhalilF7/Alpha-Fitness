@@ -1,0 +1,83 @@
+{% extends 'baseFront.html.twig' %}
+{% block k %}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item {% block navdisactive %}{% endblock %}">
+                <a class="nav-link" href="{{ path('dashboard_f') }}">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {% block navevent %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('list_eventf') }}">Évènements</a>
+            </li>
+            <li class="nav-item {% block navactive %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('produitf') }}">Boutique</a>
+            </li>
+            <li class="nav-item {% block navblogs %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('posts_indexf') }}">Postes</a>
+            </li>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="nav-link {% block navsuggestion %}active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                    Suggestions
+                    <i class="fa fa-angle-down lnr"></i>
+
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                    <li> <a href="{{ path('Mysuggestion') }}"> Mes suggestions </a> </li><br>
+                    <li><a href="{{ path('suggestion')}}"> Autres suggestions</a> </li><br>
+                    <li> <a href="{{ path('reclamation_new') }}"> Reclamation</a> </li>
+                </ul>
+            </li>
+            <li class="nav-item {% block navcontact %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('contact') }}">Contacter</a>
+            </li>
+            <li class="nav-item {% block navpanier %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('panier_index') }}">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </li>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="nav-link {% block navsettings %}@@about-active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                    Profil
+                    <i class="fa fa-angle-down lnr"></i>
+
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                    <li> <a href="{{ path('participant') }}"><i class="fa fa-cog"></i> Paramètres</a> </li>
+                    <li> <a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Déconnecter</a> </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+ {% block top %}
+     <div class="header-section text-center mx-auto">
+         <h3 style="color:#8b0000;">Envoyer une Reclamation </h3>
+
+     </div>
+ {% endblock %}
+{% block div %}
+    <section class="w3l-index3 py-5">
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center"></h1>
+                        {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        {{ form_row(form.Description)}}
+                        {{ form_row(form.Images) }}
+                        {{ include('reclamation/_form.html.twig', {'button_label': 'Envoyer'}) }}
+
+
+
+                    </div></div></div></div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
+{% block produit %}
+{% endblock %}

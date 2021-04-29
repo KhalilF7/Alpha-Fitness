@@ -1,0 +1,220 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block k %}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item {% block navdisactive %}{% endblock %}">
+                <a class="nav-link" href="{{ path('dashboard_f') }}">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {% block navevent %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('list_eventf') }}">Évènements</a>
+            </li>
+            <li class="nav-item {% block navactive %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('produitf') }}">Boutique</a>
+            </li>
+            <li class="nav-item {% block navblogs %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('posts_indexf') }}">Postes</a>
+            </li>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="nav-link {% block navsuggestion %}active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                    Suggestions
+                    <i class="fa fa-angle-down lnr"></i>
+
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                    <li> <a href="{{ path('Mysuggestion') }}"> Mes suggestions </a> </li><br>
+                    <li><a href="{{ path('suggestion')}}"> Autres suggestions</a> </li><br>
+                    <li> <a href="{{ path('reclamation_new') }}"> Reclamation</a> </li>
+                </ul>
+            </li>
+            <li class="nav-item {% block navcontact %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('contact') }}">Contacter</a>
+            </li>
+            <li class="nav-item {% block navpanier %}@@about-active{% endblock %}">
+                <a class="nav-link" href="{{ path('panier_index') }}">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </li>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="nav-link {% block navsettings %}@@about-active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                    Profil
+                    <i class="fa fa-angle-down lnr"></i>
+
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                    <li> <a href="{{ path('participant') }}"><i class="fa fa-cog"></i> Paramètres</a> </li>
+                    <li> <a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Déconnecter</a> </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block search%} {% endblock%}
+
+{% block div%}
+    <br>
+
+    <div class="form-row align-items-end" >
+        <div class="col" style="margin-left: 9cm; ">
+            {{ form_start(forms) }}
+
+            {{ form_row(forms.des) }}
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-success">Rechercher</button>
+            </div>
+        </div>
+    </div>
+    {{ form_end(forms) }}
+    {% if sug %}
+        {% for s in sug %}
+            <div class="row pt-md-3">
+                <div class="col-lg-9 col-md-10 mx-auto">
+                    <div class="accordion" id="accordionExample">
+                        <div class="subject-card mt-4">
+                            <div class="subject-card-header p-0" id="headingOne">
+
+                                <div class="row">
+                                    <div class="col-md-5 subject-img">
+                                        <img style="height:10cm;" src="{{ s.image }}" class="img-fluid img-curve" alt="" />
+                                    </div>
+                                    <div class="col-md-7 subject-content mt-md-0 mt-4">
+                                        <p>  <h1 style="color:darkgreen;" ><u>{{ s.type }}</u></h1></p>
+                                        <br>
+                                        <p><h3   class="fa fa-file-text-o"  aria-hidden="true"> {{ s.description }}</h3></p>
+
+                                        {% set test = 'false' %}
+
+                                        {% set test2 = 'false' %}
+                                        <span style="text-align: center;" class="course-number"><span  class="fa fa-heart" aria-hidden="true"></span> 0 Likes</span>
+
+                                        <h3 class="fa fa-calendar"  aria-hidden="true"> {{ s.date|date("m/d/Y") }}</h3>
+
+                                        <span class="collapsed">
+           <form method="post" action="{{ path('suggestion_delete', {'id': s.id}) }}" onsubmit="return confirm('supprimer !!!!!!!!!!!!!!?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ s.id) }}">
+    <button class="btn btn-outline-danger" class>supprimer</button>
+                                    <a href="{{ path('sugesstion_edit', {'id': s.id}) }}"  class="btn btn-outline-warning">Modifier</a></form>
+
+                </span>
+
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}<br>
+        <br>
+        <p style="text-align: center; font-size:40px">Aucun Suggestions de ce type </p>
+    {% endif %}
+{% endblock %}
+
+
+{% block produit %}
+    <br>
+
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Produit </h3>
+                <br>
+                <a href="{{ path('produits_new') }}" style="font-size:40px;" >Tu veux ajouter un produits ?</a>
+
+            </div>
+
+            <div class="form-row align-items-end" >
+                <div class="col" style="margin-left: 9cm; ">
+                    {{ form_start(formp) }}
+
+                    {{ form_row(formp.nom) }}
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-success">Rechercher</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formp) }}
+            <div style="width: 400px;
+  height: 25%;margin-left: auto;
+  margin-right: auto;">
+
+
+
+
+                <div class="item">
+                    {% if pr %}
+                        {% for p in pr %}
+                            <div class="course-grid">
+
+                                <div class="course-img">
+
+                                    <a><img style="width:100%;"src="{{ p.imgproduit }}" alt=" " class="img-fluid">
+                                        <div class="price green">
+                                            <h4>${{ p.prix }}</h4>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="course-cont">
+                                    <span style="font-size:17px;" class="subject red">{{ p.categorie }}</span>
+                                    <h5 class="card-title"><a href="courses-single.html">{{ p.nom }}</a></h5>
+                                    <ul class="admin-post">
+                                        <li>
+                                            <span class="fa fa-heart"></span>  likes
+                                        </li>
+
+                                    </ul>
+
+                                    <span style="text-align:center;" >
+         <form method="post" action="{{ path('produits_delete', {'id': p.id}) }}" onsubmit="return confirm('supprimer !!!!!!!!!!?');">
+
+    <input type="hidden" name="_token" value="{{ csrf_token('delete'~ p.id) }}">
+    <button class="btn btn-outline-danger" class>supprimer</button>
+
+    <a href="{{ path('produits_edit', {'id': p.id}) }}"  class="btn btn-outline-warning">Modifier</a></form>
+
+              </span>
+
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    {% else %}<br>
+                        <br>
+                        <p style="text-align: center; font-size:40px">Aucun produit de ce nom </p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- //courses Section -->
+    <!-- subscribe section -->
+
+{% endblock %}
+
+
+

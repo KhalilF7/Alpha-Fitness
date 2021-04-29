@@ -1,0 +1,210 @@
+{% extends 'baseB.html.twig' %}
+{% block navdisactive %}{% endblock %}
+
+
+        {% block suggestion %}
+            <!--inner block start here-->
+            <div class="inner-block" style="width:100% ;">
+                <!--market updates updates-->
+
+                <!--market updates end here-->
+                <!--mainpage chit-chating-->
+                <div class="chit-chat-layer1">
+                    <div class="col-md-6 chit-chat-layer1-left">
+                        <div class="work-progres" style="width:28cm ;">
+                            <div class="chit-chat-heading">
+                               #Suggestions
+                            </div>
+                            <div class="table-responsive" style="width:27cm ;">
+                                <table class="table table-hover" >
+                                    <thead>
+                                    <tr>
+                                        <th>image</th>
+                                        <th>Description</th>
+                                        <th>type</th>
+
+                                        <th>date</th>
+                                        <th>Nom user</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        {% for s in sug%}
+                                        <td> <img style="height:3cm;width: 3cm;" src="{{ s.image }}" class="img-fluid img-curve" alt="" /></td>
+
+                                        <td>{{ s.description }}</td>
+                                        <td>{{ s.type }}</td>
+                                        <td>{{ s.date|date("m/d/Y") }}</td>
+                                        <td>{{ s.participantId }}</td>
+
+                                        <td> <form method="post" action="{{ path('suggestion_deleteb', {'id': s.id}) }}" onsubmit="return confirm('supprimer !!!!!!!!!!!!!!?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ s.id) }}">
+                                                <button class="btn btn-outline-danger" class>supprimer</button>
+                                            </form></td>
+                                    </tr>
+
+                                    {% endfor %}
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--main page chit chating end here-->
+                <!--main page chart start here-->
+
+                <!--main page chart layer2-->
+
+
+                <!--climate start here-->
+                <div class="climate">
+
+
+                    <div class="clearfix"> </div>
+                </div>
+                <!--climate end here-->
+            </div>
+        {% endblock %}
+{% block produit %}
+    <!--inner block start here-->
+    <div class="inner-block" style="width:100% ;">
+        <!--market updates updates-->
+
+        <!--market updates end here-->
+        <!--mainpage chit-chating-->
+        <div class="chit-chat-layer1">
+            <div class="col-md-6 chit-chat-layer1-left">
+                <div class="work-progres" style="width:28cm ;">
+                    <div class="chit-chat-heading">
+                        #Produits
+                    </div>
+                    <div class="table-responsive" style="width:27cm ;">
+                        <table class="table table-hover" >
+                            <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>type</th>
+                                <th>prix</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                {% for p in pr%}
+                                <td>  <img style="height:3cm;width: 3cm;"src="{{ p.imgproduit }}" alt=" " class="img-fluid">
+
+                                   </td>
+                                <td>{{ p.nom }}</td>
+                                <td>{{ p.categorie }}</td>
+                                <td>{{ p.prix }}</td>
+
+                                <td> <form method="post" action="{{ path('produit_deleteb', {'id': p.id}) }}" onsubmit="return confirm('supprimer !!!!!!!!!!?');">
+
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete'~ p.id) }}">
+                                        <button class="btn btn-outline-danger" class>supprimer</button>
+
+                                       </form></td>
+                            </tr>
+
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--main page chit chating end here-->
+        <!--main page chart start here-->
+
+        <!--main page chart layer2-->
+
+
+        <!--climate start here-->
+        <div class="climate">
+
+
+            <div class="clearfix"> </div>
+        </div>
+        <!--climate end here-->
+    </div>
+{% endblock %}
+
+{% block reclamation %}
+<div class="inner-block" style="width:100% ;">
+    <!--market updates updates-->
+
+    <!--market updates end here-->
+    <!--mainpage chit-chating-->
+    <div class="chit-chat-layer1">
+        <div class="col-md-6 chit-chat-layer1-left">
+            <div class="work-progres" style="width:28cm ;">
+                <div class="chit-chat-heading">
+                    #Reclamation
+                </div>
+                <div class="table-responsive" style="width:27cm ;">
+                    <table class="table table-hover" >
+                        <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Description</th>
+
+                            <th>Action</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            {% for p in re%}
+                            <td>  <img style="height:3cm;width: 3cm;"src="{{ p.images}}" alt=" " class="img-fluid">
+
+                            </td>
+                            <td>{{ p.description }}</td>
+
+
+                            <td> <form method="post" action="{{ path('reclamation_delete', {'id': p.id}) }}" onsubmit="return confirm('supprimer !!!!!!!!!!?');">
+
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete'~ p.id) }}">
+                                    <button class="btn btn-outline-danger" class>supprimer</button>
+
+                                </form></td>
+                            <td><a href="{{ path('reclamation_show', {'id': p.id}) }}">show</a></td>
+                        </tr>
+
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--main page chit chating end here-->
+    <!--main page chart start here-->
+
+    <!--main page chart layer2-->
+
+
+    <!--climate start here-->
+    <div class="climate">
+
+
+        <div class="clearfix"> </div>
+    </div>
+    <!--climate end here-->
+</div>
+
+{% endblock %}
+
+

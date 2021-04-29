@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Detailler la commande</h1>
+
+    {{ include('details_commande/_form.html.twig') }}
+
+    <a href="{{ path('details_commande_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,264 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block navsuggestion %}active{% endblock %}
+
+{% block search%} {% endblock%}
+
+{% block div%}
+    <br>
+
+    <div class="form-row align-items-end" >
+
+        <div class="col" style="margin-left: 9cm; ">
+            {{ form_start(forms) }}
+
+            {{ form_row(forms.des) }}
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-success">Rechercher</button>
+            </div>
+
+        </div>
+
+        <a href="{{ path('trinomdesc') }}" class="btn btn-outline-success"> Triee Date</a>
+
+
+
+    </div>
+    {{ form_end(forms) }}
+    {% if sug %}
+    {% for s in sug %}
+    <div class="row pt-md-3">
+        <div class="col-lg-9 col-md-10 mx-auto">
+            <div class="accordion" id="accordionExample">
+                <div class="subject-card mt-4">
+                    <div class="subject-card-header p-0" id="headingOne">
+
+                        <div class="row">
+                            <div class="col-md-5 subject-img">
+                                <img style="height:10cm;" src="{{ s.image }}" class="img-fluid img-curve" alt="" />
+                            </div>
+                            <div class="col-md-7 subject-content mt-md-0 mt-4">
+                              <p>  <h1 style="color:darkgreen;" ><u>{{ s.type }}</u></h1></p>
+                                <br>
+                                <p><h3   class="fa fa-file-text-o"  aria-hidden="true"> {{ s.description }}</h3></p>
+
+                                <span style="text-align: center;" class="course-number"><span  class="fa fa-heart" aria-hidden="true"></span> 0 Likes</span>
+
+                                <h3 class="fa fa-calendar"  aria-hidden="true"> {{ s.date|date("d/m/Y") }}</h3>
+
+                                <span class="collapsed">
+
+   {% set test = 'false' %}
+
+                                    {% set test2 = 'false' %}
+
+
+
+
+
+                                                {% set test2 = 'true' %}
+                                                <form action="{{ path('remove_like') }}" method ="post">
+
+                                        <input type="hidden" value="{{s.id}}" name="id">
+
+                              <button class="fa fa-thumbs-up " disabled  > Like </button>
+                                     <button class="btn btn-outline-danger btn-sm "  > Dislike </button>
+
+                    </form>
+                                                {% set test = 'true' %}
+                                                {% set test2 = 'true' %}
+
+
+
+                                 {% if test == "false" and test2 == "true"  %}
+
+                                        <form action="{{ path('add_like') }}" method ="post">
+
+                                        <input type="hidden" value="{{s.id}}" name="id">
+
+                                         <button class="fa fa-thumbs-up"  > Like </button>
+                                   <button class="btn btn-outline-dark btn-sm " disabled  > Dislike </button>
+                    </form>
+                                    {% endif %}
+
+                                 {% if test2 == "false"  %}
+                                        <form action="{{ path('add_like') }}" method ="post">
+
+                                        <input type="hidden" value="{{s.id}}" name="id">
+
+    <button class="fa fa-thumbs-up "   > Like </button>
+                                    <button class="btn btn-outline-danger btn-sm " disabled  > Dislike </button>                    </form>
+                                    {% endif %}
+
+
+                    </form>
+
+
+
+
+
+
+            </span>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}<br>
+        <br>
+        <p style="text-align: center; font-size:40px">Aucun Suggestions de ce type </p>
+    {% endif %}
+{% endblock %}
+
+
+{% block produit %}
+    <br>
+
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Produit </h3>
+                <br>
+                <a href="{{ path('produits_new') }}" style="font-size:40px;" >Tu veux ajouter un produits ?</a>
+
+            </div>
+
+            <div class="form-row align-items-end" >
+                <div class="col" style="margin-left: 9cm; ">
+                    {{ form_start(formp) }}
+
+                    {{ form_row(formp.nom) }}
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-success">Rechercher</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formp) }}
+            <div style="width: 400px;
+  height: 25%;margin-left: auto;
+  margin-right: auto;">
+
+
+
+
+                <div class="item">
+                    {% if pr %}
+                    {% for p in pr %}
+                    <div class="course-grid">
+
+                        <div class="course-img">
+
+                            <a><img style="width:100%;"src="{{ p.imgproduit }}" alt=" " class="img-fluid">
+                                <div class="price green">
+                                    <h4>${{ p.prix }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span style="font-size:17px;" class="subject red">{{ p.categorie }}</span>
+                            <h5 class="card-title"><a href="courses-single.html">{{ p.nom }}</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                </li>
+
+                            </ul>
+
+                            <span class="collapsed">
+
+   {% set test = 'false' %}
+
+                                {% set test2 = 'false' %}
+
+
+
+
+
+                                        {% set test2 = 'true' %}
+                                        <form action="{{ path('remove_likep') }}" method ="post">
+
+                                        <input type="hidden" value="{{p.id}}" name="id">
+
+                              <button class="fa fa-thumbs-up " disabled  > Like </button>
+                                     <button class="btn btn-outline-danger btn-sm "  > Dislike </button>
+
+                    </form>
+                                        {% set test = 'true' %}
+                                        {% set test2 = 'true' %}
+
+
+
+                                {% if test == "false" and test2 == "true"  %}
+
+                                    <form action="{{ path('add_likep') }}" method ="post">
+
+                                        <input type="hidden" value="{{p.id}}" name="id">
+
+                                         <button class="fa fa-thumbs-up"  > Like </button>
+                                   <button class="btn btn-outline-dark btn-sm " disabled  > Dislike </button>
+                    </form>
+                                {% endif %}
+
+                                {% if test2 == "false"  %}
+                                    <form action="{{ path('add_likep') }}" method ="post">
+
+                                        <input type="hidden" value="{{p.id}}" name="id">
+
+    <button class="fa fa-thumbs-up "   > Like </button>
+                                    <button class="btn btn-outline-danger btn-sm " disabled  > Dislike </button>                    </form>
+                                {% endif %}
+
+
+                    </form>
+
+
+
+
+
+
+            </span>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    {% else %}<br>
+                        <br>
+                        <p style="text-align: center; font-size:40px">Aucun produit de ce nom </p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- //courses Section -->
+    <!-- subscribe section -->
+
+{% endblock %}
+
+
+

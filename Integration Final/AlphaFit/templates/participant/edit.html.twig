@@ -1,0 +1,15 @@
+{% extends 'basef.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Modifier Utilisateur</title>
+{% endblock %}
+{% block navdisactive %}{% endblock %}
+{% block navsettings %}active{% endblock %}
+{% block produits %}
+    <h1 style="color:var(--primary-color)">Edit User </h1>
+    <div>
+        {{ include('participant/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+    <a class="btn btn-primary theme-button" href="{{ path('participant') }}">Return Back</a>
+
+{% endblock %}

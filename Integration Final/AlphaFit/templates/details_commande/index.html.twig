@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Details sur la commande</title>
+{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <p style="color:#e01515;font-size:34px;font-weight: 420;"> Details sur la commande</p><br><br>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Numéro de commande</th>
+                                <th>Nom de produit</th>
+                                <th>Qantité produit</th>
+                                <th>Prix produit</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for commande in commandes %}
+                                {% if app.details_commandes.numc.idcommande==commande.idcommande %}
+                                    {% for details_commande in details_commandes %}
+                                        <tr>
+                                            <td>{{ details_commande.id }}</td>
+                                            <td>{{ details_commande.numc }}</td>
+                                            <td>{{ details_commande.idproduit.idproduit.nom }}</td>
+                                            <td>{{ details_commande.qteproduit }}</td>
+                                            <td>{{ details_commande.idproduit.idproduit.prix }}</td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5">no records found</td>
+                                        </tr>
+                                {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

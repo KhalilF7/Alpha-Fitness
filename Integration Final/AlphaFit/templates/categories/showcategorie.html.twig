@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Catégories Evènement</title>{% endblock %}
+{% block innerblock %}
+<div class="inner-block">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+    {% if categorie %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">LISTE DES CATEGORIES</h3>
+    </div>
+    <div class="card-body p-0">
+        <table id="id_categorie" class="table table-striped">
+            <thead>
+            <tr>
+
+                <th>Nom Categorie</th>
+
+
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in categorie%}
+                <tr>
+
+                    <td>{{ c.nomcategorie}}</td>
+
+
+                    <td>
+
+                        <a class="btn btn-block btn-success" href="{{ path('edit_categorie',{'idCategorie':c.idCategorie}) }} " > modifier</a>
+
+                    </td>
+
+                    <td>
+                        <a class="btn btn-block btn-danger" href="{{ path('delete_categorie',{'idCategorie':c.idCategorie}) }} " >supprimer </a>
+                    </td>
+                </tr>
+            </tbody>
+
+            {% endfor %}
+            {% endif %}
+
+        </table>
+        <a href="{{ path('add_categorie') }}"><i class="fa fa-plus-circle"> Créer une nouvelle catégorie</i></a>
+
+    </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

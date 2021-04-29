@@ -1,0 +1,23 @@
+<div class="col-lg-6 mt-lg-0 mt-5 contact-right">
+    <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+        <div class="input-grids">
+            <div class="form-group" style="color:var(--primary-color)" >
+                {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_label(form.username,'name') }}
+                {{ form_widget(form.username,{'attr': {'class': 'form-control'}}) }}
+                {{ form_label(form.password,'Password') }}
+                {{ form_widget(form.password,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.email,'Email') }}
+                {{ form_widget(form.email,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.imageuser,'Image') }}
+                {{ form_widget(form.imageuser,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.role,'Role') }}
+                {{ form_widget(form.role,{'attr': {'class': 'form-control'}})  }}
+                {{ form_label(form.datedenaissance,'Date de Naissance') }}
+                {{ form_widget(form.datedenaissance,{'attr': {'class': 'form-control'}}) }}
+                <button >{{ button_label|default('Save') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </form>
+</div>

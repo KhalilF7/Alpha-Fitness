@@ -1,0 +1,7 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+
+<span style="text-align: center;" class="course-number">
+    <button class="btn btn-outline-success">{{ button_label|default('Save') }}</button>        </span>
+
+{{ form_end(form) }}

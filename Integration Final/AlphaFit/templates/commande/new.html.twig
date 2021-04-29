@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Créer une nouvelle Commande</h1>
+
+    {{ include('commande/_form.html.twig') }}
+
+    <a href="{{ path('commande_index') }}">back to list</a>
+{% endblock %}

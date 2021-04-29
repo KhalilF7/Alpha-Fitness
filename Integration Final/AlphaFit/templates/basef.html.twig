@@ -1,0 +1,651 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block title %}
+        <title>Alpha Fitness | Accueil</title>
+    {% endblock %}
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset("assets/css/style-starter.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/style-starter.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/style-btn.css") }}">
+</head>
+<body>
+<!--header-->
+<section class="w3l-header">
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark stroke">
+                <a class="navbar-brand" href="{{ path('dashboard_f') }}">
+                    <img src="{{ asset("images/alpha1.png") }}" alt="Logo" width="62" height="50"/>
+                </a>
+                <!-- if logo is image enable this
+            <a class="navbar-brand" href="#index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+            </a> -->
+                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item {% block navdisactive %}active{% endblock %}">
+                            <a class="nav-link" href="{{ path('dashboard_f') }}">Accueil <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {% block navevent %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('list_eventf') }}">Évènements</a>
+                        </li>
+                        <li class="nav-item {% block navactive %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('produitf') }}">Boutique</a>
+                        </li>
+                        <li class="nav-item {% block navblogs %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('posts_indexf') }}">Postes</a>
+                        </li>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="nav-link {% block navsuggestion %}@@about-active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                                Suggestions
+                                <i class="fa fa-angle-down lnr"></i>
+
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="{{ path('Mysuggestion') }}"> Mes suggestions </a> </li><br>
+                                <li><a href="{{ path('suggestion')}}"> Autres suggestions</a> </li><br>
+                                <li> <a href="{{ path('reclamation_new') }}"> Reclamation</a> </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item {% block navcontact %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('contact') }}">Contacter</a>
+                        </li>
+                        <li class="nav-item {% block navpanier %}@@about-active{% endblock %}">
+                            <a class="nav-link" href="{{ path('panier_index') }}">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="nav-link {% block navsettings %}@@about-active{% endblock %}" data-toggle="dropdown" aria-expanded="false">
+                                Profil
+                                <i class="fa fa-angle-down lnr"></i>
+
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="{{ path('participant') }}"><i class="fa fa-cog"></i> Paramètres</a> </li>
+                                <li> <a href="{{ path('app_logout') }}"><i class="fa fa-sign-out"></i> Déconnecter</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <label class="theme-selector">
+                        <input type="checkbox" id="themeToggle">
+                        <i class="gg-sun"></i>
+                        <i class="gg-moon"></i>
+                    </label>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--/header-->
+</section>
+<!-- index-block1 -->
+{% block produitsback %}
+    <div class="w3l-index1">
+    <div class="content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 content-left">
+                    <h3 style="color:#d5727f">Ensemble,</h3>
+                    <h3 style="color:#d5727f">nous y arriverons!</h3>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block panier %}{% endblock %}
+<!-- courses Section -->
+{% block produits %}
+    <section class="w3l-courses py-5">
+        <div class="container py-lg-3">
+            <div class="header-section mb-5 text-center mx-auto">
+                <h3>Featured Courses </h3>
+                <p class="my-3"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                    Nulla mollis dapibus nunc, ut rhoncus
+                    turpis sodales quis. Integer sit amet mattis quam.</p>
+            </div>
+            <div class="owl-courses owl-carousel owl-theme">
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ asset("assets/images/s4.jpg") }}" alt=" " class="img-fluid">
+                                <div class="price red">
+                                    <h4>$16.50</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject red">Mathematics</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>22 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>26 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ asset("assets/images/s5.jpg") }}" alt=" " class="img-fluid">
+                                <div class="price green">
+                                    <h4>$17.19</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject green">Phycology</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>18 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>15 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ asset("assets/images/s6.jpg") }}" alt=" " class="img-fluid">
+                                <div class="price blue">
+                                    <h4>$19.09</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject blue">Digital Marketing</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>20 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>11 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ asset("assets/images/s1.jpg") }}" alt=" " class="img-fluid">
+                                <div class="price green">
+                                    <h4>$45.49</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject green">Computer Science</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>15 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>48 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="item">
+                    <div class="course-grid">
+                        <div class="course-img">
+                            <a href="courses-single.html"><img src="{{ asset("assets/images/s2.jpg") }}" alt=" " class="img-fluid">
+                                <div class="price red">
+                                    <h4>$28.15</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-cont">
+                            <span class="subject red">Data Science</span>
+                            <h5 class="card-title"><a href="courses-single.html">Learning to Write as a Professional Author</a></h5>
+                            <ul class="admin-post">
+                                <li>
+                                    <span class="fa fa-file-code-o"></span>5 lessons
+                                </li>
+                                <li>
+                                    <span class="fa fa-user-o"></span>12 Students
+                                </li>
+                            </ul>
+                            <a href="courses-single.html" class="blog-btn mt-3">Know More <span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+<!-- / getstarted -->
+<footer>
+    <!-- footer -->
+    <section class="w3l-footer">
+        <div class="w3l-footer-16-main py-5">
+            <div class="container">
+                <div class="row footer-border">
+                    <div class="col-lg-3 col-md-5 column pr-md-0">
+                        <h1><a href="{{ path('dashboard_f') }}" class="footer-brand-logo"><img src="{{ asset("images/alphaFoot.png") }}" alt="Logo" width="100" height="24"/></a></h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita commodi eum qui!!</p>
+                        <ul class="mt-4 contact">
+                            <li>
+                                <p><span class="fa fa-phone" aria-hidden="true"></span> <a href="tel:+44-255-366-88">+44-255-366-88</a></p>
+                            </li>
+                            <li>
+                                <p><span class="fa fa-clock-o" aria-hidden="true"></span> Mon - Sat 8.00 - 18.00</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-md-5 column pl-md-5 mt-md-0 mt-5">
+                        <h3>Latest News</h3>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{ asset("assets/images/b1.jpg") }}" class="img-fluid img-curve" alt="">
+                            <p class="twitter-title">Learn by doing with Real World Projects Lorem, ipsum.<br>
+
+                                <label class="small"><span class="fa fa-clock-o"></span> Aug 02, 2020</label>
+                            </p>
+                        </a>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{ asset("assets/images/b5.jpg") }}" class="img-fluid img-curve" alt="">
+                            <p class="twitter-title">Using Creative Problem Solving Lorem ipsum dolor sit.<br>
+
+                                <label class="small"><span class="fa fa-clock-o"></span> Sep 21, 2020</label>
+                            </p>
+                        </a>
+                        <a class="d-grid twitter-feed" href="#blog-single.html">
+                            <img src="{{ asset("assets/images/b3.jpg") }}" class="img-fluid img-curve" alt="">
+                            <p class="twitter-title">Learn by doing with Real World Projects Lorem, ipsum.<br>
+
+                                <label class="small"><span class="fa fa-clock-o"></span> Aug 02, 2020</label>
+                            </p>
+                        </a>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
+                        <h3>Company</h3>
+                        <ul class="footer-gd-16">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#courses.html">Courses Offered</a></li>
+                            <li><a href="#blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
+                        <h3>Useful Links</h3>
+                        <ul class="footer-gd-16">
+                            <li><a href="#url">Case Studies</a></li>
+                            <li><a href="#url">Our Branches</a></li>
+                            <li><a href="#url">Latest Media</a></li>
+                            <li><a href="about.html">About Company</a></li>
+                            <li><a href="#url">Our People</a></li>
+                            <li><a href="#faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="below-section pt-4 mt-5 text-center">
+                    <div class="columns-2">
+                        <ul class="social">
+                            <li><a href="#facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#linkedin"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+                            </li>
+                            <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="columns mt-3">
+                        <p>&copy; 2021 Alpha Fitness. All rights reserved | Design by <a href="https://w3layouts.com/"><strong>Alpha Team ESPRIT</strong></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fa fa-angle-up"></span>
+        </button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <!-- //move top -->
+        <script>
+            $(function () {
+                $('.navbar-toggler').click(function () {
+                    $('body').toggleClass('noscroll');
+                })
+            });
+        </script>
+    </section>
+    <!-- //footer -->
+</footer>
+
+<!-- jQuery JS -->
+<!-- <script src="assets/js/jquery-3.4.1.slim.min.js"></script> -->
+<!-- jQuery JS -->
+<script src="{{ asset("assets/js/jquery-1.9.1.min.js") }}"></script>
+
+<!-- Template JavaScript -->
+
+<!-- owl carousel -->
+<script src="{{ asset("assets/js/owl.carousel.js") }}"></script>
+
+<!-- script for testimonials -->
+<script>
+    $(document).ready(function () {
+        $('.owl-testimonials').owlCarousel({
+            loop: false,
+            margin: 0,
+            nav: false,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                480: {
+                    items: 1,
+                    nav: false
+                },
+                667: {
+                    items: 1,
+                    nav: false
+                },
+                1000: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+</script>
+<!-- //testimonials owlcarousel -->
+
+<!-- logos for customers -->
+<script>
+    $(document).ready(function () {
+        $('.owl-logos').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: false
+                },
+                480: {
+                    items: 2,
+                    nav: false
+                },
+                667: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 4,
+                    nav: false
+                }
+            }
+        })
+    })
+</script>
+<!-- //logos owlcarousel -->
+
+<!-- courses for customers -->
+<script>
+    $(document).ready(function () {
+        $('.owl-courses').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            responsiveClass: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplaySpeed: 1000,
+            autoplayHoverPause: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+    })
+</script>
+<!-- //courses owlcarousel -->
+
+<!-- magnific popup -->
+<script src="{{ asset("assets/js/jquery.magnific-popup.min.js") }}"></script>
+<script>
+    $(document).ready(function () {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+</script>
+
+<!-- responsive tabs -->
+<script src="{{ asset("assets/js/easyResponsiveTabs.js") }}"></script>
+
+<!--Plug-in Initialisation-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#nested-tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+    });
+</script>
+
+<!-- stats number counter-->
+<script src="{{ asset("assets/js/jquery.waypoints.min.js") }}"></script>
+<script src="{{ asset("assets/js/jquery.countup.js") }}"></script>
+<script>
+    $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+<!--//MENU-JS-->
+
+
+<!--theme switcher dark and light mode script-->
+<script>
+    const bodyElement = document.querySelector('body');
+    const themeToggle = document.querySelector('#themeToggle');
+    const darkModeMql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : userPreference(darkModeMql);
+
+    if (currentTheme) {
+        bodyElement.classList.add(currentTheme);
+
+        if (currentTheme === 'dark') {
+            themeToggle.checked = true;
+        }
+    }
+
+    function userPreference(e) {
+        if (e.matches) {
+            bodyElement.classList.add("dark");
+            return "dark"
+        } else {
+            bodyElement.classList.remove("dark");
+            return ""
+        }
+    }
+
+    darkModeMql.addListener(userPreference);
+
+    function themeSwitcher(e) {
+        if (e.target.checked) {
+            bodyElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            bodyElement.classList.remove('dark');
+            localStorage.setItem('theme', '');
+        }
+    }
+
+    themeToggle.addEventListener('change', themeSwitcher);
+</script>
+<!--//theme switcher dark and light mode script-->
+
+
+<!-- Bootstrap JS -->
+<script src="{{ asset("assets/js/bootstrap.min.js") }}"></script>
+
+</body>
+
+</html>

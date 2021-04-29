@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Modifier Catégorie</title>{% endblock %}
+
+{% block innerblock %}
+    <div class="inner-block">
+        <a href="{{ path('categorie_index') }}"><i class="fa fa-arrow-circle-o-left">Retour</i></a>
+        <h1>Modifier Catégorie</h1>
+
+        {{ include('categorie/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        {{ include('categorie/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

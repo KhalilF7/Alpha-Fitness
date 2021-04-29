@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}<title>Alpha Fitness | Evènement</title>{% endblock %}
+{% block innerblock %}
+<div class="inner-block">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+    {% if event %}
+                        <form class="w-search">
+                            <div class="sidebar-search">
+
+                                <div class="input-group custom-search-form">
+
+                                    <input type="text" id="searchii" class="form-control pl-3" placeholder="Search here">
+                                </div>
+                                <!-- /input-group -->
+                            </div>
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <p style="font-style: oblique"> Edit The Searched Event</p>
+                                    {% for k in event %}
+
+                                        <a href="/event/edit_event/{{k.idEvent}}" > </a>
+                                    {% endfor %}
+                                    <ul style="background-color: #FFFFFF" class="nav " id="entitiesNav">
+                                    </ul>
+                                </li>
+                            </ul>
+
+
+
+                        </form>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">LISTE DES EVENEMENTS</h3>
+
+    <div class="card-body p-0">
+        <table id="id_event" class="table table-striped">
+            <thead>
+            <tr>
+
+                <th>Nom Event</th>
+                <th>Description Event</th>
+                <th>date debut event</th>
+                <th>date fin event</th>
+                <th>nombre de places</th>
+                <th>Categorie</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for e in event%}
+                <tr>
+
+                    <td>{{ e.nomevenement}}</td>
+                    <td>{{ e.descritption}}</td>
+                    <td>{{ e.datedebut | date("d/m/Y")}}</td>
+                    <td>{{ e.datefin | date("d/m/Y")}}</td>
+                    <td>{{ e.nbplace}}</td>
+                    <td>{{ e.idCategorie.nomcategorie }}</td>
+            <td>
+
+                <a class="btn btn-block btn-success" href="{{ path('edit_event',{'idEvent':e.idEvent}) }} " > modifier</a>
+
+            </td>
+            <td>
+                <a class="btn btn-block btn-danger" href="{{ path('delete_event',{'idEvent':e.idEvent}) }} " >supprimer </a>
+            </td>
+
+                </tr>
+            </tbody>
+            {% endfor %}
+            {% endif %}
+
+        </table>
+        <a href="{{ path('add_event') }}"><i class="fa fa-plus-circle"> Ajouter un évènement</i></a>
+
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(event) }}
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="{{ asset('js/jquery/jquery.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#searchii").keyup(function() {
+                var minlength = 1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajaxsearch') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+
+                            if (value===$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    console.log(result);
+                                    $.each(arr, function(id, value) {
+                                        if (key === 'event') {
+                                            if (id !== 'error') {
+                                                console.log(value);
+                                                entitySelector.append('<li>' +
+                                                    'Event:'+value[0])   ;
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

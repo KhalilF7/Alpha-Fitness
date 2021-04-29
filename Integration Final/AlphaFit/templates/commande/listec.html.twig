@@ -1,0 +1,31 @@
+{% block body %}
+    <h1>Commande index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Idcommande</th>
+            <th>Client</th>
+            <th>Date</th>
+            <th>Etat</th>
+            <th>Montant</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idcommande }}</td>
+                <td>{{ commande.idclient.UserName }}</td>
+                <td>{{ commande.datecom ? commande.datecom|date('Y-m-d') : '' }}</td>
+                <td>{{ commande.etatcom }}</td>
+                <td>{{ commande.montantcom }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

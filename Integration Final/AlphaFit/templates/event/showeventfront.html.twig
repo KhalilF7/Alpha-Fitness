@@ -1,0 +1,116 @@
+{% extends 'basef.html.twig' %}
+{% block navdisactive %}{% endblock %}
+{% block navevent %}active{% endblock %}
+
+{% block title %}
+    <title>Alpha Fitness | Boutique</title>
+{% endblock %}
+{% block produitsback %}
+    <div class="w3l-index2">
+        <div class="content">
+            <div class="container">
+                <nav id="breadcrumbs" class="breadcrumbs">
+                    <div class="container page-wrapper text-center">
+                        <div class="header-section">
+                            <h2 class="mb-2">Nos Évènements</h2>
+                        </div>
+                        <a href="{{ path('dashboard_f') }}">Accueil</a> » <span class="breadcrumb_last" aria-current="page">Évènements</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block produits %}
+<section class="w3l-index3 py-5">
+    <div class="container py-md-3">
+    {% if event %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">LISTE DES EVENEMENTS</h3>
+
+            <div class="card-body p-0">
+                <table id="id_event" class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <th>Nom Event</th>
+                        <th>Description Event</th>
+                        <th>date debut event</th>
+                        <th>date fin event</th>
+                        <th>nombre de places</th>
+                        <th>Categorie</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for e in event%}
+                    <tr>
+
+                        <td>{{ e.nomevenement}}</td>
+                        <td>{{ e.descritption}}</td>
+                        <td>{{ e.datedebut | date("d/m/Y")}}</td>
+                        <td>{{ e.datefin | date("d/m/Y")}}</td>
+                        <td>{{ e.nbplace}}</td>
+                        <td>{{ e.idCategorie.nomcategorie }}</td>
+                    </tr>
+                    </tbody>
+
+                    {% endfor %}
+
+                </table>
+            </div>
+            <div class="navigation">
+                {{ knp_pagination_render(event) }}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <script src="{{ asset('js/jquery/jquery.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#searchii").keyup(function() {
+                var minlength = 1;
+                var that = this;
+                var value = "azerty";
+                var entitySelector = $("#entitiesNav").html('');
+
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajaxsearch') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+
+                            if (value===$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    console.log(result);
+                                    $.each(arr, function(id, value) {
+                                        if (key === 'event') {
+                                            if (id !== 'error') {
+                                                console.log(value);
+                                                entitySelector.append('<li>' +
+                                                    'Event:'+value[0])   ;
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    </div>
+</section>
+{% endblock %}

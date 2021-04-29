@@ -1,0 +1,146 @@
+{% extends 'baseP.html.twig' %}
+
+{% block title %}
+    <title>Alpha Fitness | Posts</title>
+{% endblock %}
+ {% block back %}
+<!--inner block start here-->
+<div class="inner-block">
+    <!--market updates updates-->
+    <div class="market-updates">
+        <div class="col-md-4 market-update-gd">
+            {% for pst in posts %}
+            <div class="market-update-block clr-block-1">
+                <div class="col-md-8 market-update-left">
+                    <h3> {{ pst.nbcmt }}  </h3>
+                    <h4>Commentaires</h4>
+                    <p>Ensemble, nous y arriverons</p>
+
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-file-text-o"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="col-md-4 market-update-gd">
+            <div class="market-update-block clr-block-2">
+                <div class="col-md-8 market-update-left">
+                    <h3> {{ pst.views }} </h3>
+                    <h4>Vues</h4>
+                    <p>Ensemble, nous y arriverons</p>
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-eye"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="col-md-4 market-update-gd">
+            <div class="market-update-block clr-block-3">
+                <div class="col-md-8 market-update-left">
+                    <h3>{{ pst.report }}</h3>
+                    <h4>Reports</h4>
+                    <p>Ensemble, nous y arriverons</p>
+                </div>
+                <div class="col-md-4 market-update-right">
+                    <i class="fa fa-envelope-o"> </i>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+     {% endfor %}
+
+{% block innerblock %}
+    <div class="inner-block">
+      {#   <h1 style="color:#e70604">Gestion des blogs</h1> #}
+        <a href="{{ path('stat') }}" class="btnSingel2 " >Statistiques</a>
+        <br>
+        <form>
+            <h1>Trouver une publication</h1>
+            <input type="search" name="recherche" id="recherche" placeholder="recherche...">
+        </form>
+        <div >
+        <table class="table" >
+            <thead>
+            <tr>
+                <th style="color:#2a919f">Idp</th>
+                <th style="color:#2a919f">Contenu</th>
+                <th style="color:#2a919f">Image</th>
+                <th style="color:#2a919f">comments</th>
+                <th style="color:#2a919f">Views</th>
+                <th style="color:#2a919f">Likes</th>
+                <th style="color:#2a919f">Report</th>
+                <th style="color:#2a919f">Date</th>
+                <th style="color:#2a919f">Utilisateur</th>
+                <th style="color:#2a919f">Action</th>
+            </tr>
+            </thead>
+            <tbody >
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.contenup }}</td>
+                    <td><img src="images/{{post.imgpost }}"style="height:5cm;width:5cm;" alt=""></td>
+                    <td>{{ post.nbcmt }}</td>
+                    <td>{{ post.views }}</td>
+                    <td>{{ post.likes }}</td>
+                    <td>{{ post.report }}</td>
+                    <td>{{ post.dateP ? post.datep|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ post.idPoster }}</td>
+
+                    <td>
+                        {#   <a href="{{ path('posts_show', {'idp': post.idp}) }}">show</a>#}
+                     {#    <span class="label label-danger" href="{{ path('posts_show', {'idp': post.idp}) }}"></span>#}
+                        {# {{ include('posts/_delete_form.html.twig') }} #}
+                        <a  href="{{ path('posts_delete',{'id':post.id}) }}" class="btnSingel1 ">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">no records found</td>
+                </tr>
+            {% endfor %}
+            <div class="box">
+                <nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+                </nav>
+            </div>
+
+            <div class="navigation">
+            {{ knp_pagination_render(posts) }}
+        </div>
+            </tbody>
+        </table>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script >
+        $(function () {
+            $("#recherche").keyup(function () {
+                $.ajax({
+                    url : "{{ path('posts_index') }}",
+                    data : { 'recherche' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('.table.table').empty();
+                    $('.table.table').append(tableau);
+                });
+            });
+        })
+    </script>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
+ {% endblock %}

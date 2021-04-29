@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+
+{% block innerblock %}
+    <div class="inner-block">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h1 style="color:var(--primary-color)" >Paramètres</h1>
+
+                            <table class="table">
+                                <tbody>
+                                <tr style="color:var(--primary-color)">
+                                    <th>Nom</th>
+                                    <td>{{ app.user.username }}</td>
+                                </tr>
+                                <tr style="color:var(--primary-color)">
+                                    <th>Mot de passe</th>
+                                    <td>*******</td>
+                                </tr>
+                                <tr style="color:var(--primary-color)">
+                                    <th>Email</th>
+                                    <td>{{ app.user.email }}</td>
+                                </tr>
+                                <tr style="color:var(--primary-color)">
+                                    <th>Photo de profil</th>
+                                    <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ app.user.imageuser }}" alt></td>
+                                </tr>
+                                <tr style="color:var(--primary-color)" >
+                                    <th>Role</th>
+                                    <td>{{ app.user.role }}</td>
+                                </tr>
+                                <tr style="color:var(--primary-color)">
+                                    <th >Date de naissance</th>
+                                    <td>{{ app.user.datedenaissance ? app.user.datedenaissance|date('Y-m-d') : '' }}</td>
+                                </tr>
+                                <br style="color:var(--primary-color)">
+                                <th style="color:var(--primary-color)">Carte</th>
+                                {% set k=0 %}
+                                {% for carte in carte %}
+                                    {% if carte.username==app.user.username %}
+                                        {% set k=k+1 %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if k==1 %}
+                                    {% for carte in carte %}
+                                        {% if carte.username==app.user.username %}
+                                            <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ carte.imagecard }} " alt>{{ carte.typeofcard }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <td>{{ 'pas de Carte' }}</td>
+                                {% endif %}
+
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+
